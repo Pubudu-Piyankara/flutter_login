@@ -16,6 +16,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final myController = TextEditingController();
+  // Color labelColor = Colors.black.withOpacity(0.5);
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,18 +30,27 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             
-            Padding(
+              Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   controller: myController,
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                    
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Username',
-                      labelStyle:  TextStyle(
-                        // color: Colors.black.withOpacity(0.5),
-                      )
-                      ),
-                )),
+                      filled: true,
+                      fillColor: Color.fromARGB(136, 91, 90, 90),
+                      labelStyle: TextStyle(
+                        color: Colors.white,
+                          )
+                      
+                          ),
+                )
+                )
+            ,
             TextButton(
               style: ButtonStyle(
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
