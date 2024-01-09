@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login/Widgets/text_field.dart';
-import 'package:passwordfield/passwordfield.dart';
+import 'package:flutter_login/widgets/password.dart';
+import 'package:flutter_login/widgets/text_field.dart';
 
 //main fuction
 void main() {
-  runApp(MyApp()); //method, this method call myApp class
+  runApp(const MyApp()); //method, this method call myApp class
 }
 
 //this class exist with ui
 class MyApp extends StatefulWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -25,61 +25,42 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text('My First App'),
+          title: const Text('My First App'),
         ),
-        body: Column(
-          children: [
-            Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  controller: myController,
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Username',
-                      filled: true,
-                      fillColor: Color.fromARGB(136, 91, 90, 90),
-                      labelStyle: TextStyle(
-                        color: Colors.white,
-                      )),
-                )),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: PasswordField(
-                color: Colors.white,
-                passwordDecoration: PasswordDecoration(
-                  inputStyle: TextStyle(
-                    color: Colors.white,
-                  )
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/logo.png',
+                width: 70,
+                height: 70,
+              ),
+              const textField(inputLabel: "Username"),
+              const password(
+                passwordLabel: "Password",
+              ),
+              TextButton(
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all<Color?>(
+                      const Color.fromARGB(255, 0, 0, 0)),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color?>(Colors.yellow),
                 ),
-                border: PasswordBorder(
-                  border: OutlineInputBorder(),
+                onPressed: () {
+                  print(myController.text);
+                  setState(() {});
+                },
+                child: const Text('LogIn'),
+              ),
+              Text(
+                myController.text,
+                style: const TextStyle(
+                  color: Colors.white,
                 ),
-                hintText: 'Password',
-                backgroundColor: Color.fromARGB(136, 91, 90, 90),
-                errorMessage: 'Error',
               ),
-            ),
-            TextButton(
-              style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 0, 0, 0)),
-                backgroundColor: MaterialStateProperty.all<Color?>(Colors.yellow),
-              ),
-              onPressed: () {
-                print(myController.text);
-                setState(() {});
-              },
-              child: Text('LogIn'),
-            ),
-            Text(
-              myController.text,
-              style: const TextStyle(
-                color: Colors.white,
-              ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );
