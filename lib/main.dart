@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_login/pages/dashboard.dart';
 import 'package:flutter_login/widgets/password.dart';
 import 'package:flutter_login/widgets/text_field.dart';
+import 'package:flutter_login/widgets/button.dart';
 
 //main fuction
 void main() {
@@ -40,19 +42,29 @@ class _MyAppState extends State<MyApp> {
               const password(
                 passwordLabel: "Password",
               ),
-              TextButton(
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all<Color?>(
-                      const Color.fromARGB(255, 0, 0, 0)),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color?>(Colors.yellow),
-                ),
+              customButton(
+                buttonLabel: "Press",
                 onPressed: () {
-                  print(myController.text);
-                  setState(() {});
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Dashboard()));
                 },
-                child: const Text('LogIn'),
               ),
+              // TextButton(
+              //   style: ButtonStyle(
+              //     foregroundColor: MaterialStateProperty.all<Color?>(
+              //         const Color.fromARGB(255, 0, 0, 0)),
+              //     backgroundColor:
+              //         MaterialStateProperty.all<Color?>(Colors.yellow),
+              //   ),
+              //   onPressed: () {
+              //     print(myController.text);
+              //     setState(() {});
+
+              //   },
+              //   child: const Text('LogIn'),
+              // ),
               Text(
                 myController.text,
                 style: const TextStyle(
