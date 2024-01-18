@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:passwordfield/passwordfield.dart';
 
-class password extends StatelessWidget {
-  const password({super.key, required this.passwordLabel});
+class Password extends StatelessWidget {
+  const Password({super.key, required this.passwordLabel});
   final String passwordLabel;
 
   @override

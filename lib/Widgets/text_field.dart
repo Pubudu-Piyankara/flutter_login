@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class textField extends StatelessWidget {
-  const textField({super.key, required this.inputLabel});
+class TextFieldComponent extends StatelessWidget {
+  const TextFieldComponent({super.key, required this.inputLabel});
   final String inputLabel;
   @override
   Widget build(BuildContext context) {

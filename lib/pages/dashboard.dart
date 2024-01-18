@@ -7,11 +7,15 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:const Text('dashboard') ,
+        title: const Text('dashboard'),
       ),
       body: Center(
-        child: const Text('hello'),
-      ),
+          child: ElevatedButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: const Text("back to login"),
+      )),
     );
   }
 }
