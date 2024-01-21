@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
             Expanded(
               child: Container(
                 margin:  const EdgeInsets.all(10),
-                child: const LogIn(),
+                child: const Onbording1(),
               ),
             )
           ],
